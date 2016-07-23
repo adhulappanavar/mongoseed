@@ -31,22 +31,22 @@ var patients = new Array();
             medicines : [],
             newmedicines : [],
            });
-        console.log ("med2patient record to be saved ...", med2patients);
-      //  med2patients.save(function(err, result) {
-      //      if (err) {
-      //          return res.status(404).json({
-      //              title: 'An error occurred',
-      //              error: err
-      //          });
-      //      }
-      //      console.log(result);
-      //  });
+        //console.log ("med2patient record to be saved ...", med2patients);
+        med2patients.save(function(err, result) {
+            if (err) {
+                return res.status(404).json({
+                    title: 'An error occurred',
+                    error: err
+                });
+            }
+           // console.log(result);
+        });
 }
         });
 //console.log(patients);
 
 
-    Med2patients.find({"patientid" : "5789ee5c4b779cc738abf190"})
+    Med2patients.findOne({"patientid" : "5789ee5c4b779cc738abf18a"})
         .exec(function(err, docs) {
             if (err) {
                 return res.status(404).json({
@@ -54,7 +54,7 @@ var patients = new Array();
                     error: err
                 });
             }
-            console.log(docs);
+            console.log("Finding the patients", docs);
         });
 
 //module.exports = app;
